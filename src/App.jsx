@@ -7,6 +7,7 @@ import CafeMenu from './components/CafeMenu';
 import KidsPlayground from './components/KidsPlayground';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
+import FloatingToysBackground from './components/FloatingToysBackground';
 
 const SectionWrapper = ({ children, id }) => (
   <motion.div
@@ -22,7 +23,9 @@ const SectionWrapper = ({ children, id }) => (
 
 function App() {
   return (
-    <div className="min-h-screen bg-white selection:bg-accent selection:text-white overflow-x-hidden">
+    <div className="min-h-screen selection:bg-accent selection:text-white overflow-x-hidden relative mesh-gradient">
+      {/* Nền động đồ chơi: fixed, z-index=0, pointer-events-none */}
+      <FloatingToysBackground />
       <ScrollProgress />
       <Header />
       

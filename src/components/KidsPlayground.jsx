@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Ticket, Sparkles, MapPin } from "lucide-react";
+import { CheckCircle2, Ticket, Sparkles, MapPin, Car, Wind, ShieldCheck, Mountain, Briefcase, RotateCw, Play, Rocket, Smile, Ghost } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Carousel,
@@ -15,16 +15,16 @@ import { motion } from "framer-motion";
 
 const KidsPlayground = () => {
   const allServices = [
-    { name: "Mô hình giao thông", desc: "Bé làm quen với luật lệ & phương tiện" },
-    { name: "Sàn nhún lò xo", desc: "Giải tỏa năng lượng, phát triển chiều cao" },
-    { name: "Khu vực mạo hiểm", desc: "Thử thách lòng dũng cảm cho bé" },
-    { name: "Khu vực núi", desc: "Chinh phục đỉnh cao an toàn" },
-    { name: "Góc hướng nghiệp", desc: "Ươm mầm ước mơ nghề nghiệp tương lai" },
-    { name: "Vòng quay ngựa gỗ", desc: "Ký ức tuổi thơ kỳ diệu" },
-    { name: "Hồ hạt & Hồ cá", desc: "Khám phá thế giới tự nhiên sống động" },
-    { name: "Ống trượt siêu tốc", desc: "Cảm giác mạnh đầy phấn khích" },
-    { name: "Nhà bóng khổng lồ", desc: "Đại dương bóng đa sắc màu" },
-    { name: "Phao khô mạo hiểm", desc: "Trải nghiệm trượt phao độc đáo" }
+    { name: "Mô hình giao thông", desc: "Bé làm quen với luật lệ & phương tiện", icon: Car },
+    { name: "Sàn nhún lò xo", desc: "Giải tỏa năng lượng, phát triển chiều cao", icon: Wind },
+    { name: "Khu vực mạo hiểm", desc: "Thử thách lòng dũng cảm cho bé", icon: ShieldCheck },
+    { name: "Khu vực núi", desc: "Chinh phục đỉnh cao an toàn", icon: Mountain },
+    { name: "Góc hướng nghiệp", desc: "Ươm mầm ước mơ nghề nghiệp tương lai", icon: Briefcase },
+    { name: "Vòng quay ngựa gỗ", desc: "Ký ức tuổi thơ kỳ diệu", icon: RotateCw },
+    { name: "Hồ hạt & Hồ cá", desc: "Khám phá thế giới tự nhiên sống động", icon: Play },
+    { name: "Ống trượt siêu tốc", desc: "Cảm giác mạnh đầy phấn khích", icon: Rocket },
+    { name: "Nhà bóng khổng lồ", desc: "Đại dương bóng đa sắc màu", icon: Smile },
+    { name: "Phao khô mạo hiểm", desc: "Trải nghiệm trượt phao độc đáo", icon: Ghost }
   ];
 
   const khongGianImages = [
@@ -53,7 +53,7 @@ const KidsPlayground = () => {
   );
 
   return (
-    <section id="play" className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="play" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Main Showcase Grid */}
@@ -116,19 +116,27 @@ const KidsPlayground = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-12 md:mb-16">
               {allServices.slice(0, 6).map((service, i) => (
-                <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border-2 border-transparent hover:border-playground-blue transition-colors group text-left">
-                  <div className="shrink-0 w-10 h-10 rounded-xl bg-white border-2 border-primary/10 flex items-center justify-center group-hover:bg-playground-blue transition-colors">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+                <div key={i} className="flex items-start gap-4 p-5 rounded-3xl bg-white border border-playground-blue/10 hover:border-playground-blue/30 transition-all uipro-card-soft group text-left">
+                  <div className={cn(
+                    "shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-colors",
+                    i % 3 === 0 ? "bg-playground-blue/10 text-playground-blue" : 
+                    i % 3 === 1 ? "bg-playground-pink/10 text-playground-pink" : 
+                    "bg-playground-yellow/10 text-playground-yellow"
+                  )}>
+                    <service.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm md:text-base text-primary leading-tight">{service.name}</p>
-                    <p className="text-[10px] md:text-xs text-muted-foreground mt-1">{service.desc}</p>
+                    <p className="font-bold text-base md:text-lg text-[#0C4A6E] leading-tight">{service.name}</p>
+                    {/* Tăng khoảng cách dòng (line-height) cho thiết bị di động */}
+                    <p className="text-xs md:text-sm text-[#64748b] mt-1.5 leading-relaxed md:leading-normal">
+                      {service.desc}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Button className="h-14 md:h-16 px-8 md:px-12 rounded-2xl bg-primary text-white text-base md:text-lg font-bold shadow-xl hover:scale-105 transition-all w-full sm:w-auto">
+            <Button className="h-14 md:h-16 px-8 md:px-12 rounded-2xl bg-playground-blue text-white text-base md:text-lg font-bold shadow-xl hover:shadow-playground-blue/20 hover:scale-105 transition-all w-full sm:w-auto border-none">
               Khám phá toàn bộ 10+ khu vực
             </Button>
           </div>
@@ -137,10 +145,10 @@ const KidsPlayground = () => {
         {/* Experience Section - Infinite Scrolling Marquee */}
         <div className="mt-40 -mx-6 overflow-hidden">
           <div className="text-center mb-16 px-6">
-            <h3 className="text-4xl md:text-5xl text-primary font-black mb-4 uppercase tracking-tighter">
-              Khoảnh khắc <span className="text-accent italic">Hạnh phúc</span>
+            <h3 className="text-4xl md:text-5xl text-[#0C4A6E] font-black mb-4 uppercase tracking-tighter">
+              Khoảnh khắc <span className="text-playground-pink italic font-light">Hạnh phúc</span>
             </h3>
-            <p className="text-muted-foreground text-lg">Cùng Smart Kids lưu giữ những nụ cười rạng rỡ của bé và gia đình.</p>
+            <p className="text-[#64748b] text-lg">Cùng Smart Kids lưu giữ những nụ cười rạng rỡ của bé và gia đình.</p>
           </div>
 
           <div className="relative flex overflow-hidden cursor-grab active:cursor-grabbing">
@@ -158,7 +166,7 @@ const KidsPlayground = () => {
               {[...experienceImages, ...experienceImages].map((src, i) => (
                 <div 
                   key={i}
-                  className="relative shrink-0 w-64 md:w-80 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl"
+                  className="relative shrink-0 w-64 md:w-80 aspect-[3/4] rounded-[2.5rem] overflow-hidden border-4 border-white shadow-xl"
                 >
                   <img src={src} alt="Kids Experience" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
@@ -168,38 +176,61 @@ const KidsPlayground = () => {
           </div>
         </div>
 
-        {/* Pricing Card */}
-        <div className="mt-32 max-w-4xl mx-auto px-6">
-          <div className="glass-premium p-12 rounded-[3rem] border-primary/5 shadow-2xl relative overflow-hidden group">
-            <Ticket className="absolute -right-10 -bottom-10 w-48 h-48 text-primary/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+        {/* Pricing Card - Two Price Tiers Redesign */}
+        <div className="mt-32 max-w-5xl mx-auto px-6">
+          <div className="uipro-card-soft p-8 md:p-12 rounded-[3.5rem] border-none shadow-2xl relative overflow-hidden group bg-white">
+            <Ticket className="absolute -right-10 -bottom-10 w-48 h-48 text-[#0C4A6E]/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
             
-            <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-              <div>
-                <h4 className="text-3xl font-black text-primary mb-4">Vé vui chơi trọn gói</h4>
-                <p className="text-muted-foreground mb-8 text-lg">
-                  Bé thỏa sức trải nghiệm không giới hạn tất cả các trò chơi trong không gian máy lạnh mát mẻ, sạch sẽ.
+            <div className="grid lg:grid-cols-5 gap-12 items-center relative z-10">
+              <div className="lg:col-span-2">
+                <h4 className="text-3xl font-black text-[#0C4A6E] mb-6">Vé vui chơi trọn gói</h4>
+                <p className="text-[#64748b] mb-8 text-lg leading-relaxed">
+                  Bé thỏa sức trải nghiệm không giới hạn tất cả các trò chơi trong không gian máy lạnh mát mẻ, sạch sẽ và an toàn.
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-4 mb-8">
                   {["Không giới hạn thời gian chơi", "Áp dụng cho tất cả khu vực", "Giảm 10% khi đặt tiệc sinh nhật"].map((t, i) => (
-                    <li key={i} className="flex items-center gap-3 font-bold text-sm text-primary">
-                      <Sparkles className="w-5 h-5 text-secondary" />
+                    <li key={i} className="flex items-center gap-3 font-bold text-sm text-[#0C4A6E]">
+                      <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                      </div>
                       {t}
                     </li>
                   ))}
                 </ul>
+                <div className="flex items-center gap-2 py-3 px-4 bg-emerald-50 rounded-2xl border border-emerald-100 w-fit">
+                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Khử khuẩn mỗi ngày</span>
+                </div>
               </div>
               
-              <div className="bg-primary text-white p-10 rounded-[2.5rem] text-center shadow-2xl">
-                <p className="text-secondary font-bold uppercase tracking-widest text-sm mb-4">Giá vé niêm yết</p>
-                <div className="flex justify-center items-end gap-2 mb-6">
-                  <span className="text-6xl font-black tracking-tighter">50K</span>
-                  <span className="text-xl mb-2 opacity-80">/ Vé</span>
+              <div className="lg:col-span-3 grid sm:grid-cols-2 gap-6">
+                {/* Tier 1: Mon-Fri */}
+                <div className="bg-[#0C4A6E] text-white p-8 rounded-[2.5rem] text-center shadow-xl hover:scale-[1.02] transition-transform">
+                  <p className="text-playground-yellow font-bold uppercase tracking-widest text-[10px] mb-4">Thứ 2 - Thứ 6</p>
+                  <div className="flex justify-center items-end gap-1 mb-4">
+                    <span className="text-5xl font-black tracking-tighter">50K</span>
+                    <span className="text-base mb-1 opacity-70">/ vé</span>
+                  </div>
+                  <div className="h-px bg-white/10 mb-4" />
+                  <p className="text-[10px] opacity-80 leading-relaxed">
+                    Ba mẹ miễn phí vé vào cổng <br />
+                    Phục vụ trà đá miễn phí
+                  </p>
                 </div>
-                <div className="h-px bg-white/20 mb-6" />
-                <p className="text-sm opacity-90 leading-relaxed">
-                  Ba mẹ được miễn phí hoàn toàn vé vào cổng. <br />
-                  Phục vụ trà đá miễn phí tại khu vực sảnh chờ.
-                </p>
+
+                {/* Tier 2: Sat-Sun & Holidays */}
+                <div className="bg-playground-blue text-white p-8 rounded-[2.5rem] text-center shadow-xl hover:scale-[1.02] transition-transform">
+                  <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-4">T7 - CN & Ngày Lễ</p>
+                  <div className="flex justify-center items-end gap-1 mb-4">
+                    <span className="text-5xl font-black tracking-tighter">70K</span>
+                    <span className="text-base mb-1 opacity-70">/ vé</span>
+                  </div>
+                  <div className="h-px bg-white/10 mb-4" />
+                  <p className="text-[10px] opacity-90 leading-relaxed">
+                    Trọn gói tất cả trò chơi <br />
+                    Không giới hạn thời gian
+                  </p>
+                </div>
               </div>
             </div>
           </div>

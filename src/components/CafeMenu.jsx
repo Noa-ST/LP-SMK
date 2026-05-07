@@ -39,44 +39,50 @@ const CafeMenu = () => {
   ];
 
   return (
-    <section id="menu" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="menu" className="py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <Badge className="bg-playground-yellow hover:bg-playground-yellow text-primary px-4 py-1 mb-6">
+          <Badge className="bg-playground-yellow hover:bg-playground-yellow text-white px-6 py-2 mb-6 uipro-pill border-none shadow-md">
             Thưởng thức tinh hoa
           </Badge>
-          <h2 className="text-4xl md:text-6xl text-primary font-black uppercase tracking-tight">Thực Đơn <span className="text-playground-pink italic font-light">Smart Kids</span></h2>
+          <h2 className="text-4xl md:text-6xl text-[#0C4A6E] font-black uppercase tracking-tight">
+            Thực Đơn <span className="text-playground-pink italic font-light">Smart Kids</span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {menuItems.map((item, index) => (
             <motion.div 
               key={index}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-[2rem] border-2 border-primary/10 overflow-hidden shadow-xl shadow-black/5 flex flex-col h-full"
+              className="uipro-card-soft flex flex-col h-full group cursor-pointer"
+              // Hiệu ứng Hover mượt mà (chuyển đổi 200-300ms) đã được định nghĩa trong class uipro-card-soft
             >
-              <div className="aspect-[4/5] relative overflow-hidden group">
+              <div className="aspect-square relative overflow-hidden rounded-t-[2rem]">
                 <img 
                   src={item.image} 
                   alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {item.tag && (
-                  <Badge className={cn("absolute top-5 left-5 text-white border-none px-4 py-1", item.tagColor)}>
+                  <Badge className={cn("absolute top-5 left-5 text-white border-none px-4 py-1 uipro-pill shadow-lg", item.tagColor)}>
                     {item.tag}
                   </Badge>
                 )}
               </div>
               
               <div className="p-8 flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-primary leading-tight">{item.name}</h3>
-                  <span className="text-lg font-black text-playground-blue">{item.price}</span>
+                <div className="flex justify-between items-start mb-4 gap-2">
+                  <h3 className="text-lg font-bold text-[#0C4A6E] leading-tight group-hover:text-playground-blue transition-colors">
+                    {item.name}
+                  </h3>
+                  <span className="text-lg font-black text-playground-blue shrink-0">
+                    {item.price}
+                  </span>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
+                <p className="text-sm text-[#64748b] leading-relaxed mb-8 flex-grow">
                   {item.desc}
                 </p>
-                <Button className="w-full bg-white border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all rounded-xl h-12 flex items-center gap-2">
+                <Button className="w-full bg-white border-2 border-playground-blue/20 text-playground-blue font-bold hover:bg-playground-blue hover:text-white hover:border-playground-blue transition-all duration-300 rounded-xl h-12 flex items-center justify-center gap-2 shadow-sm">
                   <Coffee className="w-4 h-4" />
                   Thêm vào đơn
                 </Button>

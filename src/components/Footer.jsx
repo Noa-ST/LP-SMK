@@ -41,26 +41,28 @@ const Footer = () => {
           </div>
 
           <div className="text-center sm:text-left">
-            <h4 className="text-lg font-black mb-8 uppercase tracking-widest text-secondary">Giờ mở cửa</h4>
-            <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                <p className="text-xs font-bold text-slate-500 uppercase mb-1">Thứ 2 - Thứ 6</p>
-                <p className="text-xl font-black text-secondary tracking-tight">07:00 - 22:00</p>
-              </div>
-              <div className="p-4 rounded-2xl bg-secondary/10 border border-secondary/20">
-                <p className="text-xs font-bold text-secondary/60 uppercase mb-1">Thứ 7 - CN</p>
-                <p className="text-xl font-black text-secondary tracking-tight">06:30 - 22:30</p>
+            <h4 className="text-lg font-black mb-8 uppercase tracking-widest text-playground-yellow">Giờ mở cửa</h4>
+            <div className="uipro-card-soft bg-white/5 border border-white/10 p-6 backdrop-blur-md">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Thứ 2 - Thứ 6</p>
+                  <p className="text-2xl font-black text-playground-yellow tracking-tight">07:00 - 22:00</p>
+                </div>
+                <div className="pt-6 border-t border-white/5">
+                  <p className="text-[10px] font-bold text-playground-pink uppercase tracking-widest mb-2">Thứ 7 - Chủ Nhật</p>
+                  <p className="text-2xl font-black text-playground-pink tracking-tight">06:30 - 22:30</p>
+                </div>
               </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-8">
               <a 
                 href="https://maps.app.goo.gl/W56XqJiAX4XnBZGt5" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-secondary hover:text-white transition-colors font-bold group"
+                className="inline-flex items-center gap-3 text-slate-400 hover:text-white transition-colors font-bold group"
               >
                 Chỉ đường trên Google Maps
-                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>
           </div>

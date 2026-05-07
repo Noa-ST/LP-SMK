@@ -1,6 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap');
 
 @theme {
   --color-background: hsl(var(--background));
@@ -141,8 +140,13 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, .brand-font {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Varela Round', sans-serif;
     font-weight: 700;
+  }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #F0F9FF;
+    color: #0C4A6E;
   }
 }
 
@@ -206,6 +210,49 @@
 
   .animate-float-subtle {
     animation: float-subtle 4s ease-in-out infinite;
+  }
+
+  .uipro-card-soft {
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .uipro-card-soft:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1), 
+                0 15px 20px -10px rgba(0, 0, 0, 0.08);
+  }
+
+  .uipro-pill {
+    border-radius: 9999px;
+  }
+
+  /* ============================================================
+   * FloatingToysBackground Animations
+   * Keyframes riêng biệt để mỗi icon có nhịp điệu chuyển động khác nhau.
+   * --rotate-max: CSS Custom Property truyền từ inline style của từng icon.
+   * ============================================================ */
+
+  /* Float lên xuống - biên độ 18px: đủ thấy nhưng không gây mất tập trung */
+  @keyframes toys-float {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-20px); }
+  }
+
+  /* Xoay chậm - dùng cho icon tròn như Star, Diamond */
+  @keyframes toys-spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(var(--rotate-max, 20deg)); }
+  }
+
+  /* Xoay trung bình - dùng cho icon phức tạp như Rocket, Car, Gamepad */
+  @keyframes toys-spin-medium {
+    from { transform: rotate(calc(var(--rotate-max, 15deg) * -0.5)); }
+    to   { transform: rotate(calc(var(--rotate-max, 15deg) * 0.5)); }
   }
 }
 
