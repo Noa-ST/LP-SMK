@@ -11,7 +11,7 @@
 /build
 /dist
 
-# Environment variables
+# Environment variables (QUAN TRỌNG: Không bao giờ đẩy file này lên Git)
 .env
 .env.local
 .env.development.local
