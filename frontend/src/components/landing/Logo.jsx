@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from "@/lib/utils";
 
-const Logo = ({ className, size = "md", align = "center" }) => {
+const Logo = ({ className = "", size = "md", align = "center" }) => {
   const sizes = {
     sm: { container: "scale-[0.6] md:scale-75", tag: "text-[7px]", main: "text-xl md:text-2xl" },
     md: { container: "scale-[0.7] md:scale-90 lg:scale-100", tag: "text-[8px] md:text-[10px]", main: "text-2xl md:text-3xl" },
